@@ -8,16 +8,18 @@ let a = 'Dermatoglyphics';
 let b = 'aba';
 let c = 'moOse';
 
-function isIsogram(string) {
-	const stringToCharArray = string.toLowerCase().split('');
+function isIsogram(str) {
+	const stringToCharArray = str.toLowerCase().split('');
 	let arrayToObject = {};
 	stringToCharArray.forEach(element => {
 		let char = element;
 		arrayToObject[char] = true;
+		console.log(arrayToObject);
 	});
 	arrayToObject = Object.keys(arrayToObject);
 	return arrayToObject.length == stringToCharArray.length ? true : false;
 }
+
 console.log(isIsogram(a));
 console.log(isIsogram(b));
 console.log(isIsogram(c));

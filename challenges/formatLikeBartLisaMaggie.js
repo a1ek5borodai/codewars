@@ -40,8 +40,18 @@ function list(names) {
 }
 console.log(list([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]));
 
-//Or with reduce
+//Or shrinked version
 function list2(names) {
+	var arrayOfNames = names.map(el => el.name);
+	var lastNameInArray = arrayOfNames.pop(); //length of array is reduced by 1
+	return arrayOfNames.length
+		? arrayOfNames.join(', ') + ' & ' + lastNameInArray
+		: lastNameInArray || '';
+}
+console.log(list2([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]));
+
+//Or with reduce
+function list3(names) {
 	return names.reduce((prev, current, index, array) => {
 		if (index == 0) {
 			return current.name;
@@ -52,4 +62,4 @@ function list2(names) {
 		}
 	}, '');
 }
-console.log(list2([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]));
+console.log(list3([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]));
